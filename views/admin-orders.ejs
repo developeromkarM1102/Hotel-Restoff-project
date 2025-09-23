@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Orders</title>
+  <style>
+    /* ===== Global Styles ===== */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #1f2937;
+    }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    /* ===== Table Styles ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background: linear-gradient(90deg, #4f46e5, #6366f1);
+      color: #fff;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tr {
+      border-bottom: 1px solid #e5e7eb;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    tr:hover {
+      background-color: #eef2ff;
+      transform: scale(1.01);
+    }
+
+    td pre {
+      margin: 0;
+      white-space: pre-line;
+      /* preserves new lines */
+      word-wrap: break-word;
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      padding: 6px 12px;
+      background-color: greenyellow;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn1 {
+      padding: 6px 12px;
+      background-color: #fe994c;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: rgb(72, 250, 247);
+    }
+
+    .btn1:hover {
+      background-color: red;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+
+      th,
+      td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Admin Orders</h1>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Customer</th>
+          <th>Table No</th>
+          <th>Order Details</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach((order, index)=> { %>
+          <tr>
+            <td>
+              <%= index + 1 %>
+            </td>
+            <td>
+              <%= order.name %>
+            </td>
+            <td>
+              <%= order.tableNo %>
+            </td>
+            <td>
+              <pre><%= order.order %></pre>
+            </td>
+            <td>
+              <%= order.status %>
+            </td>
+            <td>
+              <form action="/admin/orders/<%= order._id %>/update" method="POST">
+                <select name="status" class="btn">
+                  <option value="Pending" <%=order.status==='Pending' ?'selected':'' %>>Pending</option>
+                  <option value="accepted" <%=order.status==='accepted' ?'selected':'' %>>In Progress</option>
+                  <option value="delivered" <%=order.status==='delivered' ?'selected':'' %>>Completed</option>
+                </select>
+                <button type="submit" class="btn">Update</button>
+                <button type="reset" class="btn1">Delete Order</button>
+              </form>
+            </td>
+            <td>
+              <%= order.createdAt.toLocaleString() %>
+            </td>
+          </tr>
+          </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
