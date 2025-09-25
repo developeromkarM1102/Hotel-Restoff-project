@@ -10,6 +10,9 @@ const userRouter=require('./routes/user.routes')
 
 const orderRouter = require('./routes/order.routes');
 
+const reservationRoutes = require('./routes/reservation.routes');
+
+
 const methodOverride = require('method-override');
 
 
@@ -21,6 +24,7 @@ app.use(express.urlencoded({extended:true}));//second middleware
 
 app.use('/user',userRouter);
 app.use('/', orderRouter);
+app.use('/', reservationRoutes);
 app.use(methodOverride('_method'));
 
 app.get('/',(req,res)=>{
@@ -38,6 +42,11 @@ app.get('/contact',(req,res)=>{
 app.get('/order',(req,res)=>{
     res.render('order')
 })
+
+app.get('/reservation',(req,res)=>{
+    res.render('reservation');
+})
+
 app.listen(3000,()=>
 {
     console.log("server is running")

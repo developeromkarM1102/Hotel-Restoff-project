@@ -20,8 +20,8 @@ router.post('/order', async (req, res) => {
         await newOrder.save();
 
         
-        res.redirect('/orderSuccess');  
-        //res.json({ message: "Order placed!", order: newOrder });
+        res.render('orderSuccess',{ name, tableNo, order });  
+
     } catch (err) {
         res.status(500).send("Error saving order: " + err.message);
     }
@@ -59,4 +59,16 @@ router.post('/admin/orders/:id/update', async (req, res) => {
         res.status(500).send("Failed to update status: " + error.message);
     }
 });
+
+// this is for an deleting an order
+router.post('/admin/orders/:id/delete', async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.id);
+    res.redirect('/admin/orders');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Failed to delete order");
+  }
+});
+
 module.exports = router;

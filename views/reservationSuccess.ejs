@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>Hotel Restoff - Reservation Confirmed</title>
+    <style>
+        /* Reset default margins */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf6e3, #ffe0b2);
+            padding: 20px;
+        }
+
+        .confirmation-container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .confirmation-container h1 {
+            font-size: 2.5rem;
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-container p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .confirmation-container a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .confirmation-container a:hover {
+            background-color: #e55b00;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 480px) {
+            .confirmation-container {
+                padding: 30px 20px;
+            }
+
+            .confirmation-container h1 {
+                font-size: 2rem;
+            }
+
+            .confirmation-container p {
+                font-size: 1rem;
+            }
+
+            .confirmation-container a {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="confirmation-container">
+        <h1>Reservation Confirmed!</h1>
+        <p>Thank you <%= name %>! Your table is booked.<br>Thanks for choosing us!</p>
+        <a href="/">Go Back Home</a>
+    </div>
+</body>
+
+</html>
