@@ -11,13 +11,15 @@
 <body>
   <header>
     <h1>Hotel Restoff</h1>
-    <nav>
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+    <nav id="mobileMenu">
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/order">Order Now</a>
       <a href="/contact">Contact</a>
+      <a href="/Login">Login</a>
     </nav>
-  </header><br><br><br><br><br>
+  </header><br><br><br><br>
   <section class="about">
     <div class="about-container">
       <div class="about-text">
@@ -42,8 +44,8 @@
         <p>📞 Phone: +91 12345 67890</p>
         <p>📧 Email: hotelRestoff@abc.com</p>
       </div>
-      
-      
+
+
       <div class="slider">
         <div class="about-image">
           <img src="images/hotel.jpeg" alt="Inside Hotel Restoff">

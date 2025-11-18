@@ -31,7 +31,7 @@ router.post('/reservation', async (req, res) => {
 
 router.get('/admin/reservation', async (req, res) => {
     try {
-        const reservations = await Reservation.find().sort({ createdAt: -1 });
+        const reservations = await Reservation.find().sort({ createdAt: 1 });
         res.render('admin-reservation', { reservations });
     } catch (err) {
         console.error(err);

@@ -6,8 +6,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: url("images/bg-hotel.jpg");
+  background: url("images/h-imagebg2.png");
   background-size: cover;
+  background-position: center;
   height: auto;
   width: auto;
   color: white;
@@ -48,7 +49,8 @@ header h1 {
   margin-right: 20px;
   font-size: 22px;
   font-family: "Montserrat", sans-serif;
-  margin-top: 0%;
+  margin-top: 10px;
+
 }
 
 nav {
@@ -61,8 +63,8 @@ nav {
 nav a {
   margin: 5px 10px;
   text-decoration: none;
-  color: rgb(42, 243, 230);
-  font-weight: 200;
+  color: orange;
+  font-weight: 300;
   font-family: 'Poppins', Times, serif;
 }
 
@@ -347,6 +349,7 @@ em {
   nav a {
     font-size: 18px;
     margin: 0 15px;
+    color: orange;
   }
 
   section {
@@ -388,7 +391,7 @@ em {
 }
 
 .menu-card {
-  background: linear-gradient(132deg, #000000, #94f294c8, #7f7ff7, #f96fb4, #f57979, #ffffff);
+  background: linear-gradient(132deg, #000000, #94f294c8, #7f7ff7, #ffffff);
   background-size: 400% 400%;
   animation: BackgroundGradient 15s ease infinite;
   padding: 15px;
@@ -575,7 +578,7 @@ em {
 .categories button.active,
 .categories button:hover {
   background: #f0fb20;
-  color:black;
+  color: black;
 }
 
 
@@ -681,10 +684,10 @@ em {
 }
 
 .reservation-container {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #ee7752, #23d5ab, #7f7ff7, #23a6d5);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  color: rgb(130, 248, 40);
+  color: black;
   max-width: 500px;
   margin: 80px auto;
   padding: 30px;
@@ -711,7 +714,8 @@ em {
   text-align: center;
   margin-bottom: 20px;
   font-size: 28px;
-  color: #f7c531;
+  color: orange;
+
 }
 
 .reservation-container input,
@@ -773,13 +777,13 @@ input[type="radio"]+label {
   transition: 0.3s ease;
 }
 
-/* On hover */
+
 input[type="radio"]+label:hover {
   background: rgba(247, 197, 49, 0.2);
   transform: scale(1.05);
 }
 
-/* When selected */
+
 input[type="radio"]:checked+label {
   background: #f7c531;
   color: #000;
@@ -812,27 +816,111 @@ input[type="radio"]:checked+label {
 }
 
 #contact img {
-    transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+#contact img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+  #contact div {
+    gap: 15px;
   }
 
-  #contact img:hover {
-    transform: scale(1.2);
+  #contact img {
+    height: 40px;
+    width: 40px;
   }
 
-  @media (max-width: 600px) {
-    #contact div {
-      gap: 15px;
-    }
-
-    #contact img {
-      height: 40px;
-      width: 40px;
-    }
-
-    #contact h4 {
-      font-size: 16px;
-    }
+  #contact h4 {
+    font-size: 16px;
   }
+}
+
 .Map a {
   color: #2cdef2;
+}
+
+/* -------------------- FIXED NAVBAR + MOBILE MENU -------------------- */
+
+/* Toggle Button */
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  color: #2af3e6;
+  z-index: 1100;
+  padding-right: 40px;
+}
+
+
+header {
+  background: black;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  
+  align-items: center;
+  flex-direction: row;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Hide mobile menu by default */
+#mobileMenu {
+  display: none;
+}
+
+/* Show menu when active */
+#mobileMenu.active {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 220px;
+  padding: 20px;
+  border-left: 2px solid #2af3e6;
+  gap: 15px;
+}
+
+/* Links inside mobile menu */
+#mobileMenu a {
+  color: #2af3e6;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+  .menu-btn {
+    display: none;
+  }
+
+  #mobileMenu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  #mobileMenu {
+    display: none;
+  }
 }

@@ -1,4 +1,4 @@
-// ✅ Show welcome alert (only on Home page)
+
 window.addEventListener("load", function () {
     if (document.body.id === "Home") {
         setTimeout(function () {
@@ -7,7 +7,11 @@ window.addEventListener("load", function () {
     }
 });
 
-// ✅ Set min date (today onwards) for reservation form
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+
 window.addEventListener("load", function () {
     let today = new Date().toISOString().split("T")[0];
     const dateInput = document.getElementById("date");
@@ -16,7 +20,7 @@ window.addEventListener("load", function () {
     }
 });
 
-// ✅ Time slots from 8:00 AM to 11:45 PM (15 min interval)
+
 const select = document.getElementById("time");
 if (select) {
     for (let hour = 8; hour <= 23; hour++) {
@@ -39,19 +43,19 @@ if (select) {
 }
 
 function filterMenu(category) {
-      let items = document.querySelectorAll(".menu-card");
-      document.querySelectorAll(".categories button").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
-      items.forEach(item => {
+    let items = document.querySelectorAll(".menu-card");
+    document.querySelectorAll(".categories button").forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
+    items.forEach(item => {
         if (category === "all" || item.classList.contains(category)) {
-          item.style.display = "block";
+            item.style.display = "block";
         } else {
-          item.style.display = "none";
+            item.style.display = "none";
         }
-      });
-    }
+    });
+}
 
-// ✅ Search functionality with "no result" message
+
 const searchInput = document.getElementById("searchInput");
 const sections = document.querySelectorAll(".menu-container");
 
@@ -184,3 +188,6 @@ function decreaseQty(btn) {
         qtyInput.value = currentValue - 1;
     }
 }
+
+
+

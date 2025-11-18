@@ -94,13 +94,11 @@
     <tr>
       <th>#</th>
       <th>Name</th>
-      <th>Email</th>
       <th>Phone</th>
-      <th>Table</th>
+      <th>Email</th>
       <th>Guests</th>
       <th>Date</th>
       <th>Time</th>
-      <th>Special Requests</th>
     </tr>
   </thead>
   <tbody>
@@ -108,13 +106,11 @@
       <tr>
         <td><%= index + 1 %></td>
         <td><%= res.name %></td>
-        <td><%= res.email %></td>
         <td><%= res.phone %></td>
-        <td><%= res.tableNo %></td>
+        <td><%= res.email %></td>
         <td><%= res.guests %></td>
         <td><%= res.date.toDateString() %></td>
         <td><%= res.time %></td>
-        <td><%= res.specialRequest %></td>
       </tr>
     <% }) %>
   </tbody>

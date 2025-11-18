@@ -1,42 +1,84 @@
 const express = require('express');
 const router = express.Router();
+const userModel = require('../models/user.model');
+const orderModel = require('../models/order.model'); 
 const { body, validationResult } = require('express-validator');
-const userModel = require('../models/user.model')
-const { isEmpty } = require('validator');
 
-
-router.get('/register', (req, res) => {
-    res.render("register");
+router.get('/Login', (req, res) => {
+    res.render("Login");
 });
 
-router.post('/register',
-    body('email').trim().isEmail(),
-    body('password').trim().isLength({ min: 4 }),
-    body('username').trim().isLength({ min: 2 }),
 
-    async(req, res) => {
-        const errors = validationResult(req);
-        if(!errors.isEmpty())
-        {
-            return res.status(400).json({
-                errors:errors.array(),
-                message:'invalid data'
-            })
+router.get('/newUser', (req, res) => {
+    res.render('newUser');
+});
+
+
+router.post('/Login', async (req, res) => {
+    const { email, password } = req.body;
+
+    
+    const user = await userModel.findOne({ email });
+
+    if (!user) return res.send("Invalid email");
+    if (user.password !== password) return res.send("Wrong password");
+
+    req.session.user = user;
+
+    if (req.session.pendingOrder) {
+
+        const pending = req.session.pendingOrder;
+
+        const order = new orderModel({
+            name: pending.name,
+            tableNo: pending.tableNo,
+            order: pending.order,
+            user: user._id
+        });
+
+        await order.save();
+        delete req.session.pendingOrder;
+
+        return res.render('orderSuccess', {
+            name: order.name,
+            tableNo: order.tableNo,
+            order: order.order
+        });
+    }
+
+    res.redirect('/');
+});
+
+router.post('/newUser', async (req, res) => {
+    try {
+        const { username, email, phone, password } = req.body;
+
+        if (!username || !email || !phone || !password) {
+            return res.send("All fields are required");
         }
-        else
-        {
-            res.send("Registration successfull.");
+
+        const existingUser = await userModel.findOne({ email });
+        if (existingUser) {
+            return res.send("User already exists");
         }
 
-        const {email,password,username}=req.body;
-
-        const newUser = await userModel.create({
-            email,
+        const newUser = new userModel({
             username,
+            email,
+            phone,
             password
-        })
-        res.json(newUser);
-        console.log(req.body);
-    });
+        });
+
+        await newUser.save();
+
+        res.render("LoginSuccess", {
+            name: newUser.name
+        });
+
+    } catch (err) {
+        res.status(500).send("Error creating user: " + err.message);
+    }
+});
+
 
 module.exports = router;

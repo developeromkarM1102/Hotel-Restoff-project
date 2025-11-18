@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hotel Omkar</title>
+    <style>
+      /* --- Fully Themed Login Page Styles --- */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background: url('../images/home-img-1.jpg') no-repeat center center/cover;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+.login-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+.login-form-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(197, 157, 95, 0.3);
+    border-radius: 8px;
+}
+.section-title {
+    color: #fff;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    padding-bottom: .5rem;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #c59d5f;
+    height: .2rem;
+    width: 6rem;
+}
+.themed-form .input-group {
+    margin-bottom: 20px;
+}
+.themed-form input {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid #c59d5f;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+.themed-form input::placeholder {
+    color: #ccc;
+}
+.themed-form input:focus {
+    outline: none;
+    background: rgba(197, 157, 95, 0.1);
+}
+.btn {
+    width: 100%;
+    margin-top:  20px;
+    padding: 14px;
+    background: #d7922b;
+    border: none;
+    border-radius: 5px;
+    font-size: larger;
+    font-style: oblique; 
+}
+.toggle-link {
+    margin-top: 25px;
+    color: #eee;
+}
+.toggle-link a {
+    color: #c59d5f;
+    text-decoration: none;
+    font-weight: 600;
+}
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Design for Mobile Devices --- */
+@media (max-width: 576px) {
+    .login-form-container {
+        padding: 25px;
+        margin: 15px;
+        border: none;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-title::after {
+        width: 4rem;
+    }
+    .themed-form input {
+        padding: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <section class="login-section">
+        <div class="login-form-container">
+            
+            <h2 class="section-title">Member Login</h2>
+            <form id="login-form" class="themed-form" action="/user/Login" method="POST">
+                <div class="input-group">
+                    <input type="text" id="login-username" name="username" placeholder="Enter Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="login-email" name="email" placeholder="Enter Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" name="password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p class="toggle-link">
+                Don't have an account? <a href="/newUser">Register here</a>
+            </p>
+
+        </div>
+    </section>
+
+    <script src="hotel.js"></script>
+</body>
+</html>

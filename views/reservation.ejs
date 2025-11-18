@@ -10,14 +10,16 @@
 
 <body>
     <header>
-        <h1>Hotel Restoff</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/order">Order Now</a>
-            <a href="/contact">Contact</a>
-        </nav>
-    </header><br><br><br><br><br>
+    <h1>Hotel Restoff</h1>
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+    <nav id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/order">Order Now</a>
+      <a href="/contact">Contact</a>
+      <a href="/Login" class="login-btn">Login</a>
+    </nav>
+  </header><br><br><br><br>
     <div class="reservation-container">
         <h2>You're on the right choice.</h2>
         <h2>Reserve Your Table 🍽️</h2>
@@ -50,9 +52,6 @@
                 <option value="5">5 Guests</option>
                 <option value="6+">6+ Guests</option>
             </select>
-
-            <label for="message">Special Requests</label>
-            <textarea id="message" name="message" rows="3" placeholder="Any special request?"></textarea>
 
             <label>Seating Preference</label><br>
             <input type="radio" id="AC" name="seating" value="AC" required>

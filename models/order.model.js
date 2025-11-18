@@ -1,4 +1,4 @@
-// models/order.model.js
+
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
@@ -12,12 +12,18 @@ const orderSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    
-    order:{
-        type:String,
-        required:true
+
+    order: {
+        type: String,
+        required: true
     },
-    
+
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: false
+    },
+
     status: {
         type: String,
         enum: ['pending', 'accepted', 'delivered'],

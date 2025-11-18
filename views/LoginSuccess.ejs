@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Successful</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff9a3c, #ff6f00);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: #333;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ff6f00;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px 14px;
+            background: #ff6f00;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-bottom: 15px;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff8c33;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+                border-radius: 12px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding-left: 12px;
+                padding-right: 12px;
+                font-size: 0.95rem;
+                margin-right: 50px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Login Successful 🎉</h1>
+        <p>Welcome back, <strong></strong>!</p>
+
+        <a href="/" class="btn">Continue to Homepage</a>
+        <a href="/order" class="btn">Back To Order Page</a>
+    </div>
+
+</body>
+</html>
