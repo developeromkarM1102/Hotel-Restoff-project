@@ -64,12 +64,20 @@ app.get('/newUser', (req, res) => {
     res.render('newUser');
 });
 
+app.get('/admin-dashboard', (req, res) => {
+    res.render('admin-dashboard');
+});
+
 app.get('/orderSuccess', (req, res) => {
     res.render('orderSuccess');
 });
 
 app.get('/LoginSuccess', (req, res) => {
     res.render('LoginSuccess');
+});
+
+app.get('/Access-denied', (req, res) => {
+    res.render('Access-denied');
 });
 
 

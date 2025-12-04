@@ -53,7 +53,7 @@ router.post('/newUser', async (req, res) => {
     try {
         const { username, email, phone, password } = req.body;
 
-        if (!username || !email || !phone || !password) {
+        if (!username || !email || !password) {
             return res.send("All fields are required");
         }
 
@@ -65,7 +65,6 @@ router.post('/newUser', async (req, res) => {
         const newUser = new userModel({
             username,
             email,
-            phone,
             password
         });
 

@@ -1,13 +1,5 @@
 
-window.addEventListener("load", function () {
-    if (document.body.id === "Home") {
-        setTimeout(function () {
-            alert("Welcome to the Hotel Restoff!");
-        }, 1000);
-    }
-});
-
-function toggleMenu() {
+window.toggleMenu = function() {
     document.getElementById("mobileMenu").classList.toggle("active");
 }
 

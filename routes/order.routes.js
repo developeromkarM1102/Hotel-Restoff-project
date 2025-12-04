@@ -2,10 +2,17 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/order.model');
 const checkLogin = require('./middleware/checkLogin');
+const checkAdmin = require('./middleware/checkAdmin');
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 // order page
 router.get('/order', (req, res) => {
     res.render('order');
+});
+
+router.get('/admin-dashboard', (req, res) => {
+    res.render('admin-dashboard');
 });
 
 // order is submitting here
@@ -34,8 +41,26 @@ router.post('/order', checkLogin, async (req, res) => {
     }
 });
 
+router.get('/admin/login', (req, res) => {
+    res.render('admin-login');
+});
+
+// this Handles admin login
+router.post('/admin/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    if(username === ADMIN_USERNAME && password === ADMIN_PASSWORD){
+        req.session.isAdmin = true;   // this is saving the admin session
+        return res.redirect('/admin-dashboard'); // redirect to dashboard   
+    } else {
+        return res.status(403).render("Access-denied");
+    }
+});
+
+
 // Fetching all orders to admin page
-router.get('/admin/orders', async (req, res) => {
+router.get('/admin/orders',checkAdmin, async (req, res) => {
+
     try {
         const orders = await Order.find().sort({ createdAt: 1 });
         res.render("admin-orders", { orders });
@@ -45,7 +70,7 @@ router.get('/admin/orders', async (req, res) => {
 });
 
 // Updating order status in admin page
-router.post('/admin/orders/:id/update', async (req, res) => {
+router.post('/admin/orders/:id/update',checkAdmin, async (req, res) => {
     try {
         const { status } = req.body;
 
@@ -67,7 +92,7 @@ router.post('/admin/orders/:id/update', async (req, res) => {
 });
 
 // Deleting order from admin page
-router.post('/admin/orders/:id/delete', async (req, res) => {
+router.post('/admin/orders/:id/delete',checkAdmin, async (req, res) => {
     try {
         await Order.findByIdAndDelete(req.params.id);
         res.redirect('/admin/orders');

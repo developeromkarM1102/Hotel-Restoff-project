@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/hotel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            width: 70%;
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px 30px;
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: whitesmoke;
+            text-decoration: double;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            width: 95%;
+            margin-bottom: 18px;
+            margin-left: -5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.20);
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.30);
+        }
+
+        .input-group input::placeholder {
+            color: #eee;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #ffbb00;
+            color: #000;
+            font-size: 20px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ffcc33;
+        }
+
+        .exit-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .exit-link a {
+            color: black;
+            text-decoration: none;
+            font-size: large;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 15px;
+            opacity: 0.8;
+            color: whitesmoke;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 35px 25px;
+            }
+
+            .input-group {
+                font-size: 14px;
+                width: 93%;
+                align-items: center;
+                margin-left: -5px;
+                margin-right: -9px;
+
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            button {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <h1>Hotel Restoff</h1>
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+    <nav id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/order">Order Now</a>
+      <a href="/contact">Contact</a>
+      <a href="/Login" class="login-btn">Login</a>
+    </nav>
+  </header><br><br><br><br>
+    <div class="login-card">
+        <h2>Admin Login</h2>
+
+        <form action="/admin/login" method="POST">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Enter Admin Username" required />
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Enter Password" required />
+            </div>
+
+            <button type="submit">Login</button>
+
+            <p class="footer-text">Restaurant Admin Panel</p>
+        </form>
+        <div class="Exit-to-HomePage">
+            <button class="exit-link">
+                <a href="/">Return to Home Page</a>
+            </button>
+        </div>
+    </div><br>
+    
+    <script src="/hotel.js"></script>
+
+</body>
+</html>

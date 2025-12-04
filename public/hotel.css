@@ -10,7 +10,7 @@ body {
   background-size: cover;
   background-position: center;
   height: auto;
-  width: auto;
+  width: 100%;
   color: white;
   text-align: center;
   overflow-x: hidden;
@@ -97,12 +97,13 @@ section {
 .btn {
   display: inline-block;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #FF7043, #FF5722);
+  background-color :#FF7A00;
   color: #fff;
   font-size: 18px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
+  border: 1px solid #25f8ff ;
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(37, 248, 255, 0.984);
   transition: all 0.3s ease-in-out;
@@ -814,7 +815,7 @@ input[type="radio"]:checked+label {
     padding: 12px;
   }
 }
-
+ 
 #contact img {
   transition: transform 0.2s ease;
 }
@@ -871,7 +872,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 /* Hide mobile menu by default */

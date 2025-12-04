@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/hotel.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-card {
+            width: 70%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px 30px;
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            color: #fff;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dashboard-title {
+            color: whitesmoke;
+            text-decoration: double;
+            text-align: center;
+            margin-top: 0;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .dashboard-btn {
+            margin-top: 20px;
+            padding: 14px 20px;
+            background: #ffbb00;
+            color: #000;
+            font-family: cursive;
+            font-size: 20px;
+            font-weight: 600;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .dashboard-btn a {
+            color: inherit;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <h1>Hotel Restoff</h1>
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+    <nav id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/order">Order Now</a>
+      <a href="/contact">Contact</a>
+      <a href="/Login" class="login-btn">Login</a>
+    </nav>
+  </header><br><br><br><br>
+    <h1 class="dashboard-title">Admin Dashboard</h1><br><br><br>
+    
+    <div class="dashboard-card">
+    <p class="dashboard-title">Welcome to the admin dashboard.</p>
+    <button class="dashboard-btn">
+    <a href="/admin/reservation">View Reservations</a>
+    </button>
+    <br/>
+    <button class="dashboard-btn">
+    <a href="/admin/orders">View Orders</a>
+    </button>
+    </div>
+    <script src="hotel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Gsap.js"></script>
+</body>
+</html>
